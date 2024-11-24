@@ -3,6 +3,11 @@ import { LogService } from '../log.service';
 import { Log } from '../log';
 import { DecimalPipe } from '@angular/common';
 
+/**
+ * The component which shows the logs on-screen.
+ *
+ * @author CoolTrainerEX
+ */
 @Component({
   selector: 'app-log',
   standalone: true,
@@ -17,6 +22,9 @@ export class LogComponent {
     this.logs = logService.getLogs;
   }
 
+  /**
+   * @returns the array of logs in reveres order
+   */
   public get getLogs(): Log[] {
     return [...this.logs]
       .sort(

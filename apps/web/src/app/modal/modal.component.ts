@@ -2,14 +2,19 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { LogService } from '../log.service';
 import { CardMessage } from '../card-message';
 
+/**
+ * The component which shows the popup modal using data from LogService
+ *
+ * @author CoolTrainerEX
+ */
 @Component({
-  selector: 'app-card',
+  selector: 'app-modal',
   standalone: true,
   imports: [],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss',
+  templateUrl: './modal.component.html',
+  styleUrl: './modal.component.scss',
 })
-export class CardComponent {
+export class ModalComponent {
   id = '';
   message = CardMessage.IN;
   @ViewChild('dialog') dialog!: ElementRef;

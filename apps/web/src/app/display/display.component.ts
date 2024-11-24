@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
+
+/**
+ * The component that displays the welcome text
+ *
+ * @author CoolTrainerEX
+ */
 @Component({
   selector: 'app-display',
   standalone: true,

@@ -3,6 +3,11 @@ import { BehaviorSubject } from 'rxjs';
 import { Log } from './log';
 import { CardMessage } from './card-message';
 
+/**
+ * A service that handles logic for adding and updating logs, as well as emitting observable events for modal display.
+ *
+ * @author CoolTrainerEX
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -15,10 +20,18 @@ export class LogService {
     this.lastIdObservable = new BehaviorSubject<string>('');
   }
 
+  /**
+   * @returns the observable object of the last ID to display on the modal.
+   */
   public get getLastId(): BehaviorSubject<string> {
     return this.lastIdObservable;
   }
 
+  /**
+   * A setter that adds a new entry or places a timeOut on an existing log, then emitting an observable event to display the modal.
+   *
+   * @param id the ID input
+   */
   public set setLastId(id: string) {
     const time = new Date();
     const log = this.logs.find(
@@ -43,10 +56,16 @@ export class LogService {
     this.lastIdObservable.next(id);
   }
 
+  /**
+   * @returns the array of logs
+   */
   public get getLogs(): Log[] {
     return this.logs;
   }
 
+  /**
+   * @returns the message to display on the modal
+   */
   public get getMessage(): number {
     return this.message;
   }

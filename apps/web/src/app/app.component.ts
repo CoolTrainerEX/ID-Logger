@@ -1,14 +1,14 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CardComponent } from './card/card.component';
 import { LogComponent } from './log/log.component';
 import { LogService } from './log.service';
 import { DisplayComponent } from './display/display.component';
+import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent, LogComponent, DisplayComponent],
+  imports: [RouterOutlet, ModalComponent, LogComponent, DisplayComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -23,6 +23,10 @@ export class AppComponent implements AfterViewInit {
     this.focus();
   }
 
+  /**
+   * This function adds the input to the log at the press of the return key.
+   * @param event the keyboard input event
+   */
   log(event: KeyboardEvent): void {
     if (event.key == 'Enter') {
       this.logService.setLastId = this.input.nativeElement.value;
@@ -30,6 +34,9 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * This function focuses the input field.
+   */
   focus(): void {
     this.input.nativeElement.focus();
   }

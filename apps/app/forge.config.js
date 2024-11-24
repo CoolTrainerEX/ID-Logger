@@ -1,39 +1,46 @@
-const { FusesPlugin } = require('@electron-forge/plugin-fuses');
-const { FuseV1Options, FuseVersion } = require('@electron/fuses');
+const { FusesPlugin } = require("@electron-forge/plugin-fuses");
+const { FuseV1Options, FuseVersion } = require("@electron/fuses");
 
 module.exports = {
   packagerConfig: {
     asar: true,
+    icon: "images/icon",
   },
   rebuildConfig: {},
   makers: [
     {
-      name: '@electron-forge/maker-squirrel',
+      name: "@electron-forge/maker-squirrel",
+      config: {
+        iconUrl: "",
+        setupIcon: "images/icon.ico",
+      },
+    },
+    {
+      name: "@electron-forge/maker-zip",
+      platforms: ["darwin"],
+    },
+    {
+      name: "@electron-forge/maker-deb",
+      config: {
+        icon: "images/icon.png",
+      },
+    },
+    {
+      name: "@electron-forge/maker-rpm",
       config: {},
     },
     {
-      name: '@electron-forge/maker-zip',
-      platforms: ['darwin'],
-    },
-    {
-      name: '@electron-forge/maker-deb',
-      config: {},
-    },
-    {
-      name: '@electron-forge/maker-rpm',
-      config: {},
-    },
-    {
-      name: '@electron-forge/maker-wix',
+      name: "@electron-forge/maker-wix",
       config: {
         language: 1033,
-        manufacturer: 'CoolTrainerEX'
-      }
-    }
+        manufacturer: "CoolTrainerEX",
+        icon: "images/icon.ico",
+      },
+    },
   ],
   plugins: [
     {
-      name: '@electron-forge/plugin-auto-unpack-natives',
+      name: "@electron-forge/plugin-auto-unpack-natives",
       config: {},
     },
     // Fuses are used to enable/disable various Electron functionality
@@ -50,14 +57,14 @@ module.exports = {
   ],
   publishers: [
     {
-      name: '@electron-forge/publisher-github',
+      name: "@electron-forge/publisher-github",
       config: {
         repository: {
-          owner: 'CoolTrainerEX',
-          name: 'id-logger'
+          owner: "CoolTrainerEX",
+          name: "id-logger",
         },
-        prerelease: true
-      }
-    }
+        prerelease: true,
+      },
+    },
   ],
 };

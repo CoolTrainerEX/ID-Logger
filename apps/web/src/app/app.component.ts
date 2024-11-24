@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { LogComponent } from './log/log.component';
 import { LogService } from './log.service';
 import { DisplayComponent } from './display/display.component';
@@ -8,7 +7,7 @@ import { ModalComponent } from './modal/modal.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ModalComponent, LogComponent, DisplayComponent],
+  imports: [ModalComponent, LogComponent, DisplayComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

@@ -1,5 +1,5 @@
 {
-  "name": "id-logger-app",
+  "name": "app",
   "productName": "id-logger-app",
   "version": "1.0.0",
   "description": "My Electron application description",

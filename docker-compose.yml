@@ -1,0 +1,7 @@
+services:
+  web:
+    build: ./apps/web
+    ports:
+      - "80:80"
+    depends_on:
+      - api

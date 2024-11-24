@@ -1,0 +1,36 @@
+<div class="h-screen overflow-y-hidden">
+  <table class="table table-zebra table-pin-rows w-1/4">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Time in</th>
+        <th>Time out</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (log of getLogs; track $index) {
+        <tr>
+          <th>{{ log.id }}</th>
+          <td>
+            {{ log.timeIn.getMonth() }}/{{ log.timeIn.getDate() }}/{{
+              log.timeIn.getFullYear()
+            }}
+          </td>
+          <td>
+            {{ log.timeIn.getHours() | number: "2.0" }}:{{
+              log.timeIn.getMinutes() | number: "2.0"
+            }}
+          </td>
+          <td>
+            @if (log.timeOut !== null) {
+              {{ log.timeOut.getHours() | number: "2.0" }}:{{
+                log.timeOut.getMinutes() | number: "2.0"
+              }}
+            }
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

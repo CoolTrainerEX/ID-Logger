@@ -1,0 +1,22 @@
+<dialog #dialog class="modal">
+  <div class="modal-box bg-neutral p-10 text-neutral-content">
+    <p class="mb-5 text-xl">{{ id }}</p>
+
+    <p class="text-lg font-semibold">
+      @switch (message) {
+        @case (0) {
+          Time in
+        }
+        @case (1) {
+          Time out
+        }
+        @case (2) {
+          You are on cooldown.
+        }
+        @case (3) {
+          You have completed your residency!
+        }
+      }
+    </p>
+  </div>
+</dialog>

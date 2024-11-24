@@ -17,7 +17,7 @@ import { CardMessage } from '../card-message';
 export class ModalComponent {
   id = '';
   message = CardMessage.IN;
-  @ViewChild('dialog') dialog!: ElementRef;
+  @ViewChild('dialog') private readonly dialog!: ElementRef;
 
   constructor(private readonly logService: LogService) {
     logService.getLastId.subscribe((value) => {

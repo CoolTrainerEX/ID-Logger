@@ -16,7 +16,7 @@ import { DecimalPipe } from '@angular/common';
   styleUrl: './log.component.scss',
 })
 export class LogComponent {
-  private logs: Log[];
+  private readonly logs: Log[];
 
   constructor(private readonly logService: LogService) {
     this.logs = logService.getLogs;
@@ -26,12 +26,10 @@ export class LogComponent {
    * @returns the array of logs in reveres order
    */
   public get getLogs(): Log[] {
-    return [...this.logs]
-      .sort(
-        (a, b) =>
-          (a.timeOut?.getTime() ?? a.timeIn.getTime()) -
-          (b.timeOut?.getTime() ?? b.timeIn.getTime()),
-      )
-      .reverse();
+    return [...this.logs].sort(
+      (a, b) =>
+        (b.timeOut?.getTime() ?? b.timeIn.getTime()) -
+        (a.timeOut?.getTime() ?? a.timeIn.getTime()),
+    );
   }
 }

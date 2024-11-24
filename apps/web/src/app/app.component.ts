@@ -14,7 +14,7 @@ import { ModalComponent } from './modal/modal.component';
 export class AppComponent implements AfterViewInit {
   title = 'ID Logger';
 
-  @ViewChild('input') input!: ElementRef;
+  @ViewChild('input') private readonly input!: ElementRef;
 
   constructor(private readonly logService: LogService) {}
 
